@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Global Warming Animation</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f0f0; }
+        svg { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+        <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#000"/>
+            </marker>
+            <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(255,140,0);stop-opacity:1" />
+            </radialGradient>
+        </defs>
+        
+        <!-- Background -->
+        <rect width="100%" height="100%" fill="#E6F3FF" />
+        
+        <!-- Sun -->
+        <circle cx="400" cy="100" r="60" fill="url(#sunGradient)">
+            <animate attributeName="r" values="60;65;60" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <text x="400" y="105" text-anchor="middle" fill="#000" font-size="20" font-weight="bold">Sun</text>
+
+        <!-- Earth -->
+        <circle cx="400" cy="400" r="150" fill="#1E90FF">
+            <animate attributeName="r" values="150;152;150" dur="10s" repeatCount="indefinite"/>
+        </circle>
+        <ellipse cx="400" cy="400" rx="180" ry="30" fill="#8B4513" opacity="0.6" />
+        <text x="400" y="405" text-anchor="middle" fill="#fff" font-size="24" font-weight="bold">Earth</text>
+
+        <!-- Atmosphere -->
+        <circle cx="400" cy="400" r="180" fill="none" stroke="#87CEEB" stroke-width="5" opacity="0.5">
+            <animate attributeName="r" values="180;185;180" dur="10s" repeatCount="indefinite"/>
+        </circle>
+        <text x="400" y="205" text-anchor="middle" fill="#000" font-size="20" font-weight="bold">Atmosphere</text>
+
+        <!-- Greenhouse Gases -->
+        <g id="greenhouseGases">
+            <circle cx="320" cy="250" r="15" fill="#FF6347" opacity="0.7">
+                <animate attributeName="cy" values="250;260;250" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="480" cy="270" r="15" fill="#FF6347" opacity="0.7">
+                <animate attributeName="cy" values="270;260;270" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="400" cy="230" r="15" fill="#FF6347" opacity="0.7">
+                <animate attributeName="cy" values="230;240;230" dur="4s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        <text x="400" y="300" text-anchor="middle" fill="#000" font-size="20" font-weight="bold">Greenhouse Gases</text>
+
+        <!-- Solar Radiation -->
+        <g id="solarRadiation">
+            <line x1="400" y1="160" x2="400" y2="220" stroke="#FFD700" stroke-width="3" marker-end="url(#arrowhead)">
+                <animate attributeName="x2" values="400;395;405;400" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="220;225;215;220" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="380" y1="160" x2="380" y2="220" stroke="#FFD700" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.7">
+                <animate attributeName="x2" values="380;375;385;380" dur="2.2s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="220;225;215;220" dur="2.2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="420" y1="160" x2="420" y2="220" stroke="#FFD700" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.7">
+                <animate attributeName="x2" values="420;415;425;420" dur="1.8s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="220;225;215;220" dur="1.8s" repeatCount="indefinite"/>
+            </line>
+        </g>
+        <text x="460" y="190" fill="#000" font-size="16" font-weight="bold">Solar Radiation</text>
+
+        <!-- Reflected Radiation -->
+        <g id="reflectedRadiation">
+            <line x1="400" y1="380" x2="400" y2="320" stroke="#FF4500" stroke-width="3" marker-end="url(#arrowhead)">
+                <animate attributeName="x2" values="400;405;395;400" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="320;325;315;320" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="380" y1="380" x2="380" y2="320" stroke="#FF4500" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.7">
+                <animate attributeName="x2" values="380;385;375;380" dur="2.2s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="320;325;315;320" dur="2.2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="420" y1="380" x2="420" y2="320" stroke="#FF4500" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.7">
+                <animate attributeName="x2" values="420;425;415;420" dur="1.8s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="320;325;315;320" dur="1.8s" repeatCount="indefinite"/>
+            </line>
+        </g>
+        <text x="460" y="350" fill="#000" font-size="16" font-weight="bold">Reflected Radiation</text>
+
+        <!-- Trapped Heat -->
+        <g id="trappedHeat">
+            <path d="M 320 280 Q 400 260 480 280" fill="none" stroke="#FF6347" stroke-width="3" marker-end="url(#arrowhead)">
+                <animate attributeName="d" values="M 320 280 Q 400 260 480 280; M 320 285 Q 400 265 480 285; M 320 280 Q 400 260 480 280" dur="3s" repeatCount="indefinite"/>
+            </path>
+            <path d="M 330 290 Q 400 270 470 290" fill="none" stroke="#FF6347" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.7">
+                <animate attributeName="d" values="M 330 290 Q 400 270 470 290; M 330 295 Q 400 275 470 295; M 330 290 Q 400 270 470 290" dur="3.5s" repeatCount="indefinite"/>
+            </path>
+        </g>
+        <text x="400" y="240" text-anchor="middle" fill="#000" font-size="16" font-weight="bold">Trapped Heat</text>
+
+        <!-- Human Activities -->
+        <g id="humanActivities">
+            <rect x="600" y="450" width="120" height="80" fill="#8B4513"/>
+            <text x="660" y="490" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">Human Activities</text>
+            <line x1="600" y1="490" x2="530" y2="430" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)">
+                <animate attributeName="x2" values="530;525;535;530" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="430;425;435;430" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <text x="570" y="470" fill="#000" font-size="14" font-weight="bold">Emissions</text>
+        </g>
+
+        <!-- Temperature Indicator -->
+        <g id="temperatureIndicator">
+            <rect x="50" y="100" width="30" height="400" fill="#ddd" stroke="#000"/>
+            <rect x="50" y="300" width="30" height="200" fill="#FF4500">
+                <animate attributeName="y" values="300;250;300" dur="10s" repeatCount="indefinite"/>
+                <animate attributeName="height" values="200;250;200" dur="10s" repeatCount="indefinite"/>
+            </rect>
+            <text x="45" y="90" text-anchor="end" fill="#000" font-size="16" font-weight="bold">Hot</text>
+            <text x="45" y="510" text-anchor="end" fill="#000" font-size="16" font-weight="bold">Cold</text>
+        </g>
+
+        <!-- Global Warming Effect -->
+        <text x="400" y="550" text-anchor="middle" fill="#FF4500" font-size="24" font-weight="bold">
+            Global Warming
+            <animate attributeName="font-size" values="24;26;24" dur="2s" repeatCount="indefinite"/>
+        </text>
+    </svg>
+</body>
+</html>
